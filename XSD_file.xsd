@@ -1,0 +1,44 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="records">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="row" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="name"/>
+              <xs:element type="xs:string" name="surname"/>
+              <xs:element type="xs:string" name="gender"/>
+              <xs:element type="xs:string" name="email"/>
+              <xs:element type="xs:string" name="phone_number"/>
+              <xs:element type="xs:string" name="address"/>
+              <xs:element type="xs:string" name="level_of_education"/>
+              <xs:element name="income_level">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:unsignedInt">
+                      <xs:attribute name="bigEnd" type="xs:unsignedLong" use="required" />
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="expenditure">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:unsignedInt">
+                      <xs:attribute name="bigEnd" type="xs:unsignedLong" use="required" />
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:string" name="currency_unit"/>
+              <xs:element type="xs:string" name="currentMood"/>
+              <xs:element type="xs:float" name="height"/>
+              <xs:element type="xs:unsignedInt" name="weight"/>
+            </xs:sequence>
+            <xs:attribute type="xs:unsignedInt" name="id" use="optional"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
